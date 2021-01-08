@@ -30,8 +30,7 @@ def translate_types(text):
 
 
 def simplify_error_location(text):
-    return re.sub(r'File .*/(.*)", line (\d+).*', r'"\1" dosyasında, \2. satırda', text)
-
+    return re.sub(r'File "(?:.*/)?(.*)", line (\d+).*', r'"\1" dosyasında, \2. satırda', text)
 
 def get_type(type_):
     type_name = type_.__name__
