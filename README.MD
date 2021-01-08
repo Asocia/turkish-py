@@ -1,16 +1,16 @@
-This is a side project which tries to translate most common error messages and builtin types to Turkish. The motivation behind this is to help my 12yo brother who doesn't know English. It is impossible to localize everything without touching the source code of Python but this is more than enough for our current needs.
+This is a side project which tries to translate most common error messages and builtin types to Turkish. The motivation behind this is to help my 12yo brother who doesn't know English learn Python. It is impossible to localize everything without touching the source code of Python but this is more than enough for our current needs.
 
 Here is an example run of script:
 ```
 ❯ ./turkishPy.sh
 >>> f
 Hata geri izlemesi (son yapılan çağrı en sonda):
-  File "<stdin>", line 1, in <module>
+  "<stdin>" dosyasında, 1. satırda
 İsimHatası: isim 'f' tanımlı değil
 
 >>> doğum_yılı = değeral("Doğum yılınızı giriniz:)
 Hata geri izlemesi (son yapılan çağrı en sonda):
-  File "<stdin>", line 1
+  "<stdin>" dosyasında, 1. satırda
     doğum_yılı = değeral("Doğum yılınızı giriniz:)
                                                  ^
 SözDizimiHatası: yazı'yı okurken satır sonuna ulaşıldı
@@ -30,7 +30,7 @@ yazdır(*değer, ayır=' ', son='\n', dosya=Ekran)
 
 >>> yazdır("Yaşınız: {}".format(2021 - doğum_yılı))
 Hata geri izlemesi (son yapılan çağrı en sonda):
-  File "<stdin>", line 1, in <module>
+  "<stdin>" dosyasında, 1. satırda
 TipHatası: - işlemi için desteklenmeyen tip(ler): 'tamsayı' ve 'yazı'
 
 >>> doğum_yılı = tamsayı(doğum_yılı)
