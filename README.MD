@@ -33,7 +33,11 @@ Hata geri izlemesi (son yapılan çağrı en sonda):
   "<stdin>" dosyasında, 1. satırda
 TipHatası: - işlemi için desteklenmeyen tip(ler): 'tamsayı' ve 'yazı'
 
+>>> tip(doğum_yılı)
+<sınıf 'yazı'>
 >>> doğum_yılı = tamsayı(doğum_yılı)
+>>> tip(doğum_yılı)
+<sınıf 'tamsayı'>
 >>> yazdır("Yaşınız: {}".format(2021 - doğum_yılı))
 Yaşınız: 12
 ```
