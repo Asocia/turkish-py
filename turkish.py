@@ -1,8 +1,9 @@
 import sys
 import traceback
 import re
+import builtins
 
-builtins = {
+builtin_types_and_functions = {
     "string": "yazı",
     "str": "yazı",
     "int": "tamsayı",
@@ -13,16 +14,17 @@ builtins = {
     "function": "fonksiyon",
     "tuple": "demet",
     "set": "küme",
+    "class": "sınıf",
 }
 
-compiled = re.compile("|".join(rf"\b{i}\b" for i in builtins.keys()))
+compiled = re.compile("|".join(rf"\b{i}\b" for i in builtin_types_and_functions.keys()))
 
 catch_indentation_errors = False
 
 
 def change_types(obj):
     b = obj.group()
-    return builtins[b]
+    return builtin_types_and_functions[b]
 
 
 def translate_types(text):
@@ -30,7 +32,10 @@ def translate_types(text):
 
 
 def simplify_error_location(text):
-    return re.sub(r'File "(?:.*/)?(.*)", line (\d+).*', r'"\1" dosyasında, \2. satırda', text)
+    return re.sub(
+        r'File "(?:.*/)?(.*)", line (\d+).*', r'"\1" dosyasında, \2. satırda', text
+    )
+
 
 def get_type(type_):
     type_name = type_.__name__
@@ -130,8 +135,25 @@ def turkish_excepthook(type_, value, tb):
     # print("".join(exc), file=sys.stderr)
 
 
+def turkish_displayhook(value):
+    if value is None:
+        return
+    builtins._ = None
+    text = repr(value)
+    translations = {r"<function (\w+) at .+>": r"fonksiyon: \1"}
+    for orig, translated in translations.items():
+        if re.search(orig, text):
+            text = re.sub(orig, translated, text)
+            break
+    text = translate_types(text)
+    sys.stdout.write(text)
+    sys.stdout.write("\n")
+    builtins._ = value
+
+
 oldhook = sys.excepthook
 sys.excepthook = turkish_excepthook
+sys.displayhook = turkish_displayhook
 
 yardım = help
 
@@ -208,16 +230,9 @@ def uzunluk(nesne):
 
 def tip(nesne):
     """
-    Verilen nesne'nin tipini söyler.
+    Verilen nesne'nin tipini döndürür.
     """
-    x = str(type(nesne))
-    x = x.replace("class", "sınıf")
-    x = translate_types(x)
-    print(x)
-    """
-    Actually type returns a 'type' but it is impossible to do in our case
-    because we actually don't have types.
-    """
+    return type(nesne)
 
 
 def yazı(nesne):
