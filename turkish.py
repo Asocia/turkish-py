@@ -93,6 +93,8 @@ def turkish_excepthook(type_, value, tb):
         r"(\S+) object has no attribute (\S+)": r"\1 nesnesinin \2 diye bir niteliği yok",
         r"No module named (\S+)": r"\1 diye bir modül yok",
         "(\S+) takes (\d+) positional arguments? but (\d+) .* given": r"\1 \2 konumsal parametre alıyor ama \3 verildi",
+        r"can't multiply sequence by non-int of type (\S+)": r'gezilebilir tamsayı olmayan tip ile çarpılamıyor: \1',
+        # r"(\S+)\(\) missing 1 required positional argument: 'nesne'":r"",
         r"(\S+) got an unexpected keyword argument (\S+)": r"\1 beklenmedik bir anahtar kelime parametresi aldı: \2",
         r"local variable (\S+) referenced before assignment": r"yerel değişkene (\1) atama yapmadan önce atıfta bulunuldu",
         # r"too many values to unpack \(expected (\d+)\)":r"patlatmak için çok fazla değer",
