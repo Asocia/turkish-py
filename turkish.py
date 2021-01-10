@@ -15,6 +15,8 @@ builtin_types_and_functions = {
     "tuple": "demet",
     "set": "küme",
     "class": "sınıf",
+    "True": "Doğru",
+    "False": "Yanlış",
 }
 
 compiled = re.compile("|".join(rf"\b{i}\b" for i in builtin_types_and_functions.keys()))
@@ -163,15 +165,17 @@ class ekran:
         return "Ekran"
 
 
-class yanlış:
-    value = False
+class yanlış(int):
+    def __new__(cls, *args, **kwargs):
+        return super(yanlış, cls).__new__(cls, 0)
 
     def __repr__(self):
         return "Yanlış"
 
 
-class doğru:
-    value = True
+class doğru(int):
+    def __new__(cls, *args, **kwargs):
+        return super(doğru, cls).__new__(cls, 1)
 
     def __repr__(self):
         return "Doğru"
@@ -196,6 +200,8 @@ def göster():
             "noktalısayı",
             "yazı",
             "Ekran",
+            "Doğru",
+            "Yanlış",
         ],
         sep="\n",
     )
