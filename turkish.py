@@ -2,6 +2,9 @@ import sys
 import traceback
 import re
 import builtins
+from math import sqrt
+
+karekök = sqrt
 
 builtin_types_and_functions = {
     "string": "yazı",
