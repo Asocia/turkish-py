@@ -71,8 +71,8 @@ def turkish_excepthook(type_, value, tb):
     type_ = get_type(type_)
 
     error_explanations = {
-        r"invalid literal for int\(\) with base (\d+): ([\"'])([^\2]+)\2": r"taban-> \1 tabanındaki tamsayı() için geçersiz değer: \2\3\2",
-        r"could not convert string to float: ([\"'])([^\1]+)\1": r"yazı-> \1\2\1 noktalısayı'ya çevrilemiyor",
+        r"invalid literal for int\(\) with base (\d+): ([\"'])([^\2]*)\2": r"taban-> \1 tabanındaki tamsayı() için geçersiz değer: \2\3\2",
+        r"could not convert string to float: ([\"'])([^\1]*)\1": r"yazı-> \1\2\1 noktalısayı'ya çevrilemiyor",
         r"(\S+)\(\) argument must be a string.* or a number, not (\S+)": r"\1()'nın parametresi yazı veya sayı olmalı, \2 değil",
         r"name (\S+) is not defined": r"isim \1 tanımlı değil",
         r"object of type (\S+) has no len\(\)": r"\1 tipindeki nesnenin uzunluk()'u yok",
