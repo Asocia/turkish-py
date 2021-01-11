@@ -1,3 +1,4 @@
+#!/bin/sh
 if test "$#" -ne 1; then
     python3 -i -c "from turkish import *"
 else

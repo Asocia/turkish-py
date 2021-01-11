@@ -80,14 +80,18 @@ def turkish_excepthook(type_, value, tb):
         r"(\S+) not supported between instances of (\S+) and (\S+)": r"\2 ve \3 tipindeki nesneler arasında \1 işlemi desteklenmiyor",
         r"unexpected indent": "beklenmedik girinti",
         r"expected an indented block": "girintilenmiş bir blok bekleniyordu",
+        "unindent does not match any outer indentation level": 'girinti daha dıştaki hiçbir girinti seviyesiyle eşleşmedi',
         r"(\S+) index out of range": r"\1 indeksi aralık dışı",
         "EOL while scanning string literal": "yazı'yı okurken satır sonuna ulaşıldı",
         "EOF while scanning triple-quoted string literal": "üçlü tırnakla başlayan yazıyı okurken dosya sonuna ulaşıldı",
+        "f-string: unterminated string": "f-yazı içerisinde sonlandırılmamış yazı",
         "unexpected EOF while parsing": "beklenmedik dosya sonu",
         r"argument of type (\S+) is not iterable": r"\1 tipindeki nesne gezilebilir değil",  # couldn't find a better term
         r"(\S+) object is not iterable": r"\1 nesnesi gezilebilir değil",
+        r"(\S+) object is not callable": r"\1 nesnesi çağrılabilir değil",
         r"(\S+) object cannot be interpreted as an integer": r"\1 nesnesi tamsayı olarak yorumlanamıyor",
         "cannot assign to function call": "fonksiyon çağrısına atama yapılamaz",
+        "cannot assign to literal": "değere atama yapılamaz",
         "division by zero": "sayı sıfıra bölünemez",
         r"\[Errno 2\] No such file or directory: ([\"'])([^\1]+)\1": r"\1\2\1 diye bir dosya ya da dizin yok",
         r"(\S+) object has no attribute (\S+)": r"\1 nesnesinin \2 diye bir niteliği yok",
@@ -97,6 +101,7 @@ def turkish_excepthook(type_, value, tb):
         # r"(\S+)\(\) missing 1 required positional argument: 'nesne'":r"",
         r"(\S+) got an unexpected keyword argument (\S+)": r"\1 beklenmedik bir anahtar kelime parametresi aldı: \2",
         r"local variable (\S+) referenced before assignment": r"yerel değişkene (\1) atama yapmadan önce atıfta bulunuldu",
+        r'must be real number, not (\S+)': r'gerçek sayı olmalı, \1 değil',
         # r"too many values to unpack \(expected (\d+)\)":r"patlatmak için çok fazla değer",
     }
 
