@@ -96,6 +96,7 @@ def turkish_excepthook(type_, value, tb):
         "cannot assign to function call": "fonksiyon çağrısına atama yapılamaz",
         "cannot assign to literal": "değere atama yapılamaz",
         "division by zero": "sayı sıfıra bölünemez",
+        "integer division or modulo by zero":"sayı sıfıra bölünemez",
         r"\[Errno 2\] No such file or directory: ([\"'])([^\1]+)\1": r"\1\2\1 diye bir dosya ya da dizin yok",
         r"(\S+) object has no attribute (\S+)": r"\1 nesnesinin \2 diye bir niteliği yok",
         r"No module named (\S+)": r"\1 diye bir modül yok",
