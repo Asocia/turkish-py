@@ -106,6 +106,8 @@ def turkish_excepthook(type_, value, tb):
         r"(\S+) got an unexpected keyword argument (\S+)": r"\1 beklenmedik bir anahtar kelime parametresi aldı: \2",
         r"local variable (\S+) referenced before assignment": r"yerel değişkene (\1) atama yapmadan önce atıfta bulunuldu",
         r'must be real number, not (\S+)': r'gerçek sayı olmalı, \1 değil',
+        r'can only join iterable': r"join'in parametresi bir gezilebilir olmalı",
+        r"sequence item (\d+): expected (\S+) instance, (\S+) found": r"\1. sıradaki nesnenin \2 tipinde olması bekleniyordu ama \3 ile karşılaşıldı"
         # r"too many values to unpack \(expected (\d+)\)":r"patlatmak için çok fazla değer",
     }
 
